@@ -1,25 +1,26 @@
-"use client";
+import React from 'react';
+import ProductButton from './product';
 
-import React, { useEffect, useState } from "react";
+const productList = async()=>{
+    const res = await fetch(`https://dummyjson.com/products`)
+    const data = await res.json()
+    return data.products
+}
 
-const ProductList = () => {
-  const [products, setProducts] = useState([]);
-  console.log(products);
-  useEffect(async () => {
-    const res = await fetch(`https://dummyjson.com/products`);
-    const data = await res.json();
-    setProducts(data.products);
-  }, []);
-  return (
-    <div className="text-center">
-      <h3>Product List</h3>
-      <div className="grid grid-cols-3">
-        {products.map((item) => (
-          <p key={item.id}>Name: {item.title}</p>
-        ))}
-      </div>
-    </div>
-  );
+const ProductList = async() => {
+    const products = await productList()
+    return (
+        <div>
+            Product list
+
+            <div className="grid grid-cols-3 gap-5">
+                {products.map(item=><div key={item.id}>
+                    <p>Name: {item.title}</p>
+                   <ProductButton item={item}/>
+                </div>)}
+            </div>
+        </div>
+    );
 };
 
 export default ProductList;
