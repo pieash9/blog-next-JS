@@ -1,11 +1,15 @@
+"use client"
+
 import React from 'react';
 
-const StudentDynamic = () => {
+const Student = ({params}) => {
+    console.log(params)
     return (
         <div>
-            
+            <h3>Student Details</h3>
+            <p>Name: {params.student}</p>
         </div>
     );
 };
 
-export default StudentDynamic;
+export default Student;
