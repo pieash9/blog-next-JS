@@ -1,6 +1,8 @@
 "use client";
+import custom from "./custom.module.css";
+import other from "./other.module.css";
+import outside from "@/app/style/outside.module.css"
 
-import Link from "next/link";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
 
@@ -11,9 +13,9 @@ export default function Home() {
   };
   return (
     <main className={styles.main}>
-      <Link href="/product-list" className="link-primary">
-        Go to product list
-      </Link>
+      <h1 className={custom.main}>style and Css with NExt js</h1>
+      <h1 className={other.main}>This is from other</h1>
+      <h1 className={outside.main}>This is from other</h1>
     </main>
   );
 }
