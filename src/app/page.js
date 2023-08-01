@@ -1,10 +1,15 @@
 "use client";
-import { useState } from "react";
-import image1 from "../../public/image2.jpg";
 
+import { useState } from "react";
 import styles from "./page.module.css";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
+import { Roboto } from "next/font/google";
+
+const robot = Roboto({
+  weight: "700",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export default function Home() {
   const [color, setColor] = useState("red");
@@ -14,14 +19,10 @@ export default function Home() {
   };
   return (
     <main className={styles.main}>
-      <div className="flex gap-5">
-        <Image width={200} height={200} src={image1} alt="img1" />
-        <Image
-          src="https://images.pexels.com/photos/1172064/pexels-photo-1172064.jpeg?cs=srgb&dl=pexels-oleksandr-canary-islands-1172064.jpg&fm=jpg"
-          width={300}
-          height={200}
-          alt="P"
-        />
+      <div className="">
+        <h1>Pieash ahemd khan</h1>
+        
+        <h3 className={robot.className}>eta roboto font</h3>
       </div>
     </main>
   );
