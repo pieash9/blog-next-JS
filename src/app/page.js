@@ -1,32 +1,30 @@
-"use client";
+// "use client";
 
-import { useState } from "react";
+import { apiBaseUrl } from "@/config/constant";
 import styles from "./page.module.css";
-import { useRouter } from "next/navigation";
 import { Roboto } from "next/font/google";
-import Image from "next/image";
 import Link from "next/link";
 
-const robot = Roboto({
+const roboto = Roboto({
   weight: "700",
   subsets: ["latin"],
   display: "swap",
 });
 
 export default function Home() {
-  const [color, setColor] = useState("red");
-  const router = useRouter();
-  const navigate = (name) => {
-    router.push(name);
-  };
+  console.log(process.env.SERVER_PASS);
   return (
     <main className={styles.main}>
       <div className="">
-        <h1>Pieash ahemd khan</h1>
-        <Link href="/users" className="hover:text-red-500">Users</Link>
-
-        
+        {process.env.NODE_ENV == "development"
+          ? "Development Mode"
+          : "Production Mode"}
+        <h1 className={roboto}>Pieash ahemd khan</h1>
+        <Link href="/users" className="hover:text-red-500">
+          Users
+        </Link>
       </div>
+      {apiBaseUrl}
     </main>
   );
 }
