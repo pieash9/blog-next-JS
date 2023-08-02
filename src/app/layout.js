@@ -1,3 +1,4 @@
+import Script from "next/script";
 import "./globals.css";
 import { Inter } from "next/font/google";
 
@@ -12,6 +13,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <link rel="stylesheet" href="/style.css" />
+        <Script src="/common.js"/>
       </head>
       <body suppressHydrationWarning={true} className={inter.className}>
         {children}
