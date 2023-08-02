@@ -1,15 +1,19 @@
-
-import User from "@/components/User";
 import React from "react";
+import { usersData } from "../../../service/getUSers";
+import Link from "next/link";
 
-const Users =  () => {
-
+const UsersData = async () => {
+  const users = await usersData();
   return (
-    <div>
-      <h3>User Name</h3>
-      <User/>
+    <div className="grid grid-cols-3">
+      <h3>Users</h3>
+      {users.map((user) => (
+        <Link href={`/users/${user.id}`} key={user.id}>
+          Name{user.name}
+        </Link>
+      ))}
     </div>
   );
 };
 
-export default Users;
+export default UsersData;
