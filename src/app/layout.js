@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="stylesheet" href="/style.css" />
-        <Script src="/common.js"/>
+        
       </head>
       <body suppressHydrationWarning={true} className={inter.className}>
         {children}
