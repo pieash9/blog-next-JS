@@ -23,10 +23,9 @@ export default function Home() {
     <main className={styles.main}>
       <div className="">
         <h1>Pieash ahemd khan</h1>
-        <Image src="/eye.jpeg" alt="eye" width={400} height={400}/>
         <Link href="/users" className="hover:text-red-500">Users</Link>
 
-        <h1 className={robot.className}>eta roboto font</h1>
+        
       </div>
     </main>
   );
